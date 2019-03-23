@@ -1,0 +1,15 @@
+.header {
+    display: grid;
+    grid-row: header-s/header-e;
+    grid-column: header-s/header-e;
+
+    background-color: #263D42;  
+
+    align-content: center;
+    justify-content: center;
+
+    .header-roomies {
+        color: #80CED7;
+        font-size: 4.2rem;
+    }
+}
