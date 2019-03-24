@@ -8,8 +8,7 @@ const ROOT_URL = root.ROOT_URL;
 
 import SignUpForm from './signUpForm';
 
-console.log(ROOT_URL);
-
+const alreadyUsed = "";
 class SignUp extends Component {
 
     constructor(props) {
@@ -18,7 +17,8 @@ class SignUp extends Component {
           activeItem: {
             fullname: "",
             email: "",
-            password: false
+            password: "",
+            userUsed: ""
           },
           users: []
         };
@@ -53,6 +53,9 @@ onSubmit = (fields) => {
         // this.createUser(fields);
         this.props.history.push('/home');
     }
+    else{
+       this.setState({userUsed: "This Email has already been registered"});
+    }
 }
 
     render() {
@@ -61,6 +64,9 @@ onSubmit = (fields) => {
                 <h1 className='sign-up__heading'>Sign Up</h1>
                 <div className='line'></div>
                 <SignUpForm onSubmit={(event) => this.onSubmit(event)}/>
+                <div className="sign-up__user">
+                    {this.state.userUsed}
+                </div>
             </div>
         )
     }

@@ -17,6 +17,14 @@
         border-bottom: 1px solid #263d42;
         margin-bottom: 2rem;
     }
+    &__user {
+        display: grid;
+        margin-top: 2rem;
+        justify-content: center;
+        align-content: center;
+        color: maroon;
+        font-size: 3rem;
+    }
 }
 
 .sign-up-form {

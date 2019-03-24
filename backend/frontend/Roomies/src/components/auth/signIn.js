@@ -7,7 +7,6 @@ import axios from "axios";
 import * as root from '../../actions/types';
 
 const ROOT_URL = root.ROOT_URL;
-let incorrect = "";
 class SignIn extends Component {
 
         constructor(props) {
@@ -44,12 +43,11 @@ class SignIn extends Component {
             }     
         })
         console.log("Incorrect email or password");
-        incorrect = this.setState({incorrect: "Incorrect email or password"});
+        this.setState({incorrect: "Incorrect email or password"});
     }
 
 
     render() {
-        const incorrect = this.state.incorrect;
         return (
             <div className='sign-in'>
                 <h1 className='heading'>Sign In</h1>
@@ -59,7 +57,7 @@ class SignIn extends Component {
                     <a className="sign-in__signup__new-user" onClick={() => this.props.history.push('/signup')}>New User?</a>
                 </div>
                 <div className="sign-in__incorrect">
-                    {incorrect}
+                    {this.state.incorrect}
                 </div>
             </div>
         )

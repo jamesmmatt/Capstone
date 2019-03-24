@@ -6,7 +6,7 @@ class Header extends Component {
             <div className='header'>
                 <h1 className='header-roomies'>Roomies</h1>
                 <div className='header__logout'>
-                    <a onClick={() => history.push('/')}>logout</a>
+                    <a onClick={() => history.push('/')}>logout/signin</a>
                 </div>
             </div>
         )
