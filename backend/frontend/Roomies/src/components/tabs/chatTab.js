@@ -38,7 +38,7 @@ class ChatTab extends Component {
     createMessage = (fields) => {
         var messagePost = new Object();
         messagePost.group = 0;
-        messagePost.name = 'Braden B';
+        messagePost.name = 'Matthew J';
         messagePost.message = fields.message;
         
         axios
@@ -48,7 +48,7 @@ class ChatTab extends Component {
 
     onSubmit = (fields) => {
         console.log(fields);
-        // this.createMessage(fields);
+        this.createMessage(fields);
         document.getElementById("use-to-clear").message.value = "";
     }
     

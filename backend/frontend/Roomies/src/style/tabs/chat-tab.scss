@@ -8,6 +8,10 @@
         display: flex;
         margin-top: auto;
         flex-direction: column;
+        text-overflow: ellipsis;
+        overflow: scroll;
+        white-space: nowrap;
+        height: 50rem;
         .chat-tab__message {
             grid-row: 1/-1;
             margin-bottom: 2rem;
@@ -16,7 +20,7 @@
             color: #263D42;
             font-size: 2rem;
             font-family: 'Roboto Condensed';
-
+            
         }
     }
 }

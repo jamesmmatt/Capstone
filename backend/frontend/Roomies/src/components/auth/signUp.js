@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import axios from "axios";
 
-import * as root from '../../actions/types';
-
-const ROOT_URL = root.ROOT_URL;
+import {ROOT_URL} from '../../config';
 
 import SignUpForm from './signUpForm';
 

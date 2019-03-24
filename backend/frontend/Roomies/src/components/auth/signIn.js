@@ -4,9 +4,8 @@ import SignInForm from './signInForm';
 
 import axios from "axios";
 
-import * as root from '../../actions/types';
+import {ROOT_URL} from '../../config';
 
-const ROOT_URL = root.ROOT_URL;
 class SignIn extends Component {
 
         constructor(props) {

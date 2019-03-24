@@ -1,5 +1,5 @@
 import users from '../database/users';
-
+import { ROOT_URL } from '../config';
 import {
     STORE_USER
 } from './types';
