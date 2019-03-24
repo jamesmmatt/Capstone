@@ -16,8 +16,8 @@ class ChatTabForm extends Component {
                     component={FormInputChat} 
                     placeholder='Enter Message' 
                     name='message' 
+                    autoComplete="off"
                     type='text'
-                    // title='Message'
                 />
                 <Field
                     className="chat-tab-form__send" 

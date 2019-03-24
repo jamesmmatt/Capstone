@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import {reset} from 'redux-form';
 
 import * as root from '../../actions/types';
 import ChatTabForm from './chatTabForm';

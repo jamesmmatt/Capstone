@@ -36,6 +36,13 @@
             }
         }
     }
+    &__incorrect {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        color: maroon;
+        font-size: 3rem;
+    }
 }
 
 .sign-in-form {
