@@ -8,9 +8,11 @@
         display: flex;
         margin-top: auto;
         flex-direction: column;
+        // justify-content: flex-end;
+ 
         text-overflow: ellipsis;
         overflow: scroll;
-        // white-space: nowrap;
+        white-space: nowrap;
         height: 50rem;
 
         .chat-tab__message {
