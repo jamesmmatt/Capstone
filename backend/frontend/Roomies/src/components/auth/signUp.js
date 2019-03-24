@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
 
 import axios from "axios";
 
+import * as root from '../../actions/types';
+
+const ROOT_URL = root.ROOT_URL;
+
 import SignUpForm from './signUpForm';
 
+console.log(ROOT_URL);
 
 class SignUp extends Component {
 
@@ -27,14 +30,14 @@ componentDidMount() {
 
 fetchUsers = () => {
     axios
-        .get("http://localhost:8000/api/users/")
+        .get(`${ROOT_URL}api/users/`)
         .then(res => this.setState({ users: res.data }))
         .catch(err => console.log(err));
 };
 
 createUser = (fields) => {
     axios
-        .post("http://localhost:8000/api/users/", fields)
+        .post(`${ROOT_URL}api/users/`, fields)
         .catch(err => console.log(err));
 };
 
@@ -47,8 +50,8 @@ onSubmit = (fields) => {
         }     
     })
     if(!userExists) {
-        this.createUser(fields);
-
+        // this.createUser(fields);
+        this.props.history.push('/home');
     }
 }
 

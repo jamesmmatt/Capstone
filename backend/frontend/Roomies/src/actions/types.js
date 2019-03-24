@@ -4,4 +4,4 @@ export const SET_USER_UTILITIES = 'SET_USER_UTILITIES';
 
 export const SET_USER_RENT = 'SET_USER_RENT';
 
-export const API = "http://localhost:8000/";
+export const ROOT_URL = "http://localhost:8000/";

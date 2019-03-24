@@ -4,6 +4,10 @@ import SignInForm from './signInForm';
 
 import axios from "axios";
 
+import * as root from '../../actions/types';
+
+const ROOT_URL = root.ROOT_URL;
+
 class SignIn extends Component {
 
         constructor(props) {
@@ -24,7 +28,7 @@ class SignIn extends Component {
 
     fetchUsers = () => {
         axios
-            .get("http://localhost:8000/api/users/")
+            .get(`${ROOT_URL}api/users/`)
             .then(res => this.setState({ users: res.data }))
             .catch(err => console.log(err));
     };
@@ -34,7 +38,7 @@ class SignIn extends Component {
         this.state.users.map(user => {
             if (fields.email.toLowerCase() == user.email.toLowerCase()) {
                 if(fields.password == user.password) {
-                    this.props.history.push('/home');        
+                    this.props.history.push('/home');   
                 }
             }     
         })

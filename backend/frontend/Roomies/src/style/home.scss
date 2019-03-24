@@ -2,3 +2,11 @@
     grid-row: content-s/content-e;
     grid-column: content-s/content-e;
 }
+
+.header__logout {
+    color: #8E6C88;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

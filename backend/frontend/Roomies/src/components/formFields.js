@@ -34,3 +34,36 @@ export class FormButton extends Component {
         )
     }
 }
+
+export class FormInputChat extends Component {
+    render() {
+        const { className, input, type, placeholder } = this.props;
+        return (
+            <div className={`${className}`}>
+                <input 
+                    className='chat-form-input__input'
+                    type={type}
+                    {...input}
+                    placeholder={placeholder}    
+                />
+            </div>
+        )
+    }
+}
+
+export class FormButtonChat extends Component {
+    render() {
+        const { className, title, input, type } = this.props;
+        return (
+            <div className={`${className}`}>
+                <button 
+                    className='chat-form-button__button'
+                    type={type}
+                    {...input}                    
+                >
+                    {title}
+                </button>
+            </div>
+        )
+    }
+}

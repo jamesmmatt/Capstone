@@ -1,35 +1,70 @@
 import React, { Component } from 'react';
+import axios from "axios";
+import {reset} from 'redux-form';
+
+import * as root from '../../actions/types';
+import ChatTabForm from './chatTabForm';
+
+const ROOT_URL = root.ROOT_URL;
 
 class ChatTab extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          activeItem: {
+            group: "",
+            name: "",
+            message: ""
+          },
+          messages: []
+        };
+      }
+
+    componentDidMount() {
+        this.fetchMessages();        
+    }
+
+    componentWillUpdate() {
+        this.fetchMessages();
+    }
+
+    fetchMessages = () => {
+        axios
+            .get(`${ROOT_URL}api/messages/`)
+            .then(res => this.setState({ messages: res.data }))
+            .catch(err => console.log(err));
+    }
+
+    createMessage = (fields) => {
+        var messagePost = new Object();
+        messagePost.group = 0;
+        messagePost.name = 'Braden B';
+        messagePost.message = fields.message;
+        
+        axios
+            .post(`${ROOT_URL}api/messages/`, messagePost)
+            .catch(err => console.log(err));
+    };
+
+    onSubmit = (fields) => {
+        console.log(fields);
+        // this.createMessage(fields);
+        document.getElementById("use-to-clear").message.value = "";
+    }
+    
+
     render() {
+        const messageItems = this.state.messages.map(message => <div className='chat-tab__message'><li>{message.name}: {message.message}</li></div>);
         return (
             <div className="chat-tab">
                 <div className="chat-tab__messages">
-                    <div className="chat-tab__message">
-                        Jonas S: I will get right on that.                    
-                    </div>
-                    <div className="chat-tab__message">
-                        Matthew J: Jonas, you still owe me $77 for rent.                    
-                    </div>
-                    <div className="chat-tab__message">
-                        Brenton E: I gotta study.
-                    </div>
-                    <div className="chat-tab__message">
-                        Braden B: I'm going to the gym.
-                    </div>
-                    <div className="chat-tab__message">
-                        Matthew J: I will go too.                 
-                    </div>
-                    <div className="chat-tab__message">
-                        Jager S: Yea, I'll go.
-                    </div>
-                    <div className="chat-tab__message">
-                        Dalton W: Do you guys wanna catch a movie tonight?
-                    </div>
+                    {messageItems}                
                 </div>
                 <div className="chat-tab__text-box">
-                    <input className="chat-tab__text-box__box" name="text" placeholder="Enter Message"/>
+                    <ChatTabForm onSubmit={(event) => this.onSubmit(event)}/>
                 </div>
+                
             </div>
         )
     }
