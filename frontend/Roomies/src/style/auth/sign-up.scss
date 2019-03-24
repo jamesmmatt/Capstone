@@ -1,0 +1,41 @@
+.sign-up {
+    grid-row: content-s/content-e;
+    grid-column: content-s/content-e;
+
+    &__heading {
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        font-size: 6rem;
+        color: #263D42;
+
+        margin-top: 10rem;
+        margin-bottom: 2rem;
+    }
+
+    .line {
+        border-bottom: 1px solid #263d42;
+        margin-bottom: 2rem;
+    }
+    &__user {
+        display: grid;
+        margin-top: 2rem;
+        justify-content: center;
+        align-content: center;
+        color: maroon;
+        font-size: 3rem;
+    }
+}
+
+.sign-up-form {
+    
+    &__fullname {
+        margin-bottom: 3rem;
+    }
+    &__email {
+        margin-bottom: 3rem;
+    }
+    &__password {
+
+    }
+}

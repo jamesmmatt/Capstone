@@ -1,0 +1,40 @@
+.footer {
+    grid-row: footer-s/footer-e;
+    position:absolute; 
+    bottom: 0;
+    width:100%;
+    height:64px;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.3rem;
+    font-family: 'Roboto Condensed';
+    background-color: #263D42;
+    color: #80CED7;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: [copyright-s] 1fr [copyright-e support-s] 1fr [support-e roomies-s] 1fr [roomies-e creator-s] 1fr [creator-e react-s] 1fr [react-e];
+    justify-items: center;
+    align-items: center;
+
+    &__copyright {
+        grid-column: copyright-s/copyright-e;
+    }
+
+    &__support-line {
+        grid-column: support-s/support-e;
+    }
+
+    &__roomies {
+        grid-column: roomies-s/roomies-e;
+        font-size: 2rem;
+
+    }
+
+    &__creator {
+        grid-column: creator-s/creator-e;
+    }
+    &__react {
+        grid-column: react-s/react-e
+    }
+}
