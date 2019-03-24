@@ -1,0 +1,25 @@
+html {
+    font-size: 62.5%; // 1rem is 10px
+    background-color: #CCDBDC;
+}
+
+*,
+*::after,
+*::before {    
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Lilita One';
+}
+
+ @import 'roomies.scss';
+ @import 'header/header';
+ @import 'footer/footer';
+ @import 'form-fields';
+ @import 'auth/sign-up';
+ @import 'auth/sign-in'; 
+ @import 'headerNav';
+ @import 'home';
+ @import 'tabs/utilities-tab';
+ @import 'tabs/rent-tab';
+ @import 'tabs/chat-tab';
