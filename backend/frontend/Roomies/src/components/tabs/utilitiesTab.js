@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import axios from "axios";
-import API from '../../actions/types';
+
+import {ROOT_URL} from '../../config';
 
 class UtilitiesTab extends Component {
 
@@ -24,9 +25,7 @@ class UtilitiesTab extends Component {
 
     fetchUserUtilities= () => {
         axios
-            // .get(`${API}api/roomies/`)
-            .get('http://localhost:8000/api/roomies')
-
+            .get(`${ROOT_URL}api/roomies/`)
             .then(res => this.setState({ billList: res.data }))  
             .catch(err => console.log(err));
     }

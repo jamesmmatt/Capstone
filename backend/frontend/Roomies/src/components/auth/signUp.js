@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import axios from "axios";
-
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import {ROOT_URL} from '../../config';
 
 import SignUpForm from './signUpForm';
@@ -39,21 +39,40 @@ createUser = (fields) => {
         .catch(err => console.log(err));
 };
 
-onSubmit = (fields) => {      
+onSubmit = (fields) => {    
     let userExists = false;
     this.state.users.map(user => {
         if (fields.email.toLowerCase() == user.email.toLowerCase()) {
-                console.log("User already exists");
-                userExists = true;
-        }     
-    })
+            console.log("User already exists");
+            userExists = true;
+        }
+    })          
+
     if(!userExists) {
-        // this.createUser(fields);
-        this.props.history.push('/home');
+    this.props.signUp(fields, () =>{
+        console.log('navigate');
+    });
+    this.props.history.push('/home')
     }
     else{
        this.setState({userUsed: "This Email has already been registered"});
     }
+
+
+    // let userExists = false;
+    // this.state.users.map(user => {
+    //     if (fields.email.toLowerCase() == user.email.toLowerCase()) {
+    //             console.log("User already exists");
+    //             userExists = true;
+    //     }     
+    // })
+    // if(!userExists) {
+    //     // this.createUser(fields);
+    //     this.props.history.push('/home');
+    // }
+    // else{
+    //    this.setState({userUsed: "This Email has already been registered"});
+    // }
 }
 
     render() {
@@ -70,4 +89,4 @@ onSubmit = (fields) => {
     }
 }
 
-export default SignUp;
+export default connect(null ,actions)(SignUp);

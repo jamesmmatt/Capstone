@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-import * as root from '../../actions/types';
 import ChatTabForm from './chatTabForm';
-
-const ROOT_URL = root.ROOT_URL;
-
+import {ROOT_URL} from '../../config';
+// const ROOT_URL = 'local'
 class ChatTab extends Component {
 
     constructor(props) {
@@ -54,7 +52,7 @@ class ChatTab extends Component {
     
 
     render() {
-        const messageItems = this.state.messages.map(message => <div className='chat-tab__message'><li>{message.name}: {message.message}</li></div>);
+        const messageItems = this.state.messages.map(message => <div className='chat-tab__message'><li>{message.message}</li></div>);
         return (
             <div className="chat-tab">
                 <div className="chat-tab__messages">
@@ -62,8 +60,7 @@ class ChatTab extends Component {
                 </div>
                 <div className="chat-tab__text-box">
                     <ChatTabForm onSubmit={(event) => this.onSubmit(event)}/>
-                </div>
-                
+                </div>                
             </div>
         )
     }

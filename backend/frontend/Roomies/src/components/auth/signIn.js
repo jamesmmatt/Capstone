@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-
 import SignInForm from './signInForm';
-
 import axios from "axios";
-
 import {ROOT_URL} from '../../config';
-
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 class SignIn extends Component {
 
         constructor(props) {
@@ -41,7 +39,6 @@ class SignIn extends Component {
                 }
             }     
         })
-        console.log("Incorrect email or password");
         this.setState({incorrect: "Incorrect email or password"});
     }
 
@@ -64,4 +61,4 @@ class SignIn extends Component {
 }
 
 
-export default SignIn;
+export default connect(null ,actions)(SignIn);
