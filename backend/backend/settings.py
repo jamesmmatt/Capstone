@@ -140,3 +140,7 @@ CORS_ORIGIN_WHITELIST = (
 # STATICFILES_DIRS = [
 #     os.path.join(REACT_APP_DIR, 'build', 'static'),
 # ]
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
